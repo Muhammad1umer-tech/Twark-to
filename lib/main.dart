@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tawk/flutter_tawk.dart';
+import 'package:office/provider/Bottom_nav_Provider.dart';
+import 'package:office/screen/mainActivity.dart';
+
+import 'package:provider/provider.dart';
+import './screen/BottomNaviPages/images/imageViewPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,40 +12,15 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({@required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      // ),
-      body: Center(
-        child: Tawk(
-          directChatLink:
-              'https://tawk.to/chat/640f06ff4247f20fefe59670/1grdb6m0s  ',
-          visitor: TawkVisitor(
-            name: 'mumer',
-            email: 'mumer@gmail.com',
-          ),
-        ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Bottom_Navigation_Bar()),
+      ],
+      child: MaterialApp(
+        home: mainActivity(),
+        // routes: {
+        //   imageViewClass.routename: (context) => imageViewClass(),
+        // },
       ),
     );
   }
