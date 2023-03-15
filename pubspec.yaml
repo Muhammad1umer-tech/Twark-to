@@ -33,7 +33,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  provider: ^6.0.5
+  flutter_tawk: ^0.1.0
+
 
 dev_dependencies:
   flutter_test:
